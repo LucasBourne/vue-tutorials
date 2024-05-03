@@ -39,12 +39,14 @@
       <section v-else id="controls">
         <button @click="attackMonster">ATTACK</button>
         <button v-if="canSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
-        <button @click="healPlayer">HEAL</button>
+        <button v-if="canHeal" @click="healPlayer">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <ul>
+          <li v-for="logItem in battleLog">{{ logItem }}</li>
+        </ul>
       </section>
     </div>
   </body>
